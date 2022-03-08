@@ -1,0 +1,14 @@
+﻿@using newswar.Models
+@model List<biz>
+
+<div class="follow">
+    <h4>Bizi sosial shebekelerde izlejin</h4>
+    <div class="icon">
+        @foreach (var item in Model)
+        {
+
+            <a href="@item.sosiallink"><i class="fab fa-@item.sosialad.ToLower()"></i></a>
+        }
+
+    </div>
+</div>

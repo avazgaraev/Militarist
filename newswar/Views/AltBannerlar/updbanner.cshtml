@@ -1,0 +1,41 @@
+﻿@model newswar.Models.altbanner
+@{
+    ViewBag.Title = "updbanner";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>updbanner</h2>
+
+
+@using (Html.BeginForm("updbanner", "altbannerlar", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.bannerid)
+
+    @Html.LabelFor(x => x.bannerad)
+    <input name="bannerad" value="@Model.bannerad" class="form-control" type="text" />
+
+
+    @Html.LabelFor(x => x.bannercolor)
+    <input name="bannercolor" value="@Model.bannercolor" class="form-control" type="color" />
+
+    @Html.LabelFor(x => x.bannerbuttontext)
+    @Html.TextBoxFor(x => x.bannerbuttontext, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.bannerbuttoncolor)
+    <input name="bannerbuttoncolor" value="@Model.bannerbuttoncolor" class="form-control" type="color" />
+
+
+    @Html.LabelFor(x => x.bannerbuttonbgcolor)
+    <input name="bannerbuttonbgcolor" value="@Model.bannerbuttonbgcolor" class="form-control" type="color" />
+
+
+    @Html.LabelFor(x => x.bannerphoto)
+    @Html.TextBoxFor(x => x.bannerphoto, new { @class = "form-control" })<br />
+
+    <img src="@Html.DisplayFor(x=>x.bannerphoto)" style="width:20%" /><br /><br />
+
+
+    <button class="btn btn-primary mt-2">Update </button>
+</div>
+}

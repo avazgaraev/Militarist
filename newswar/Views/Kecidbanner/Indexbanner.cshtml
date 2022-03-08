@@ -1,0 +1,28 @@
+﻿@using newswar.Models
+@model List<kecidbanner>
+@{
+    ViewBag.Title = "Indexbanner";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>Indexbanner</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Banner photo</th>
+        <th>Banner ad</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td><img src="@item.bannerphoto" style="width:30%" /> </td>
+            <td>@item.bannertext</td>
+            <td><a href="~/kecidbanner/delbanner/@item.kecidbannerid" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+            <td><a href="~/kecidbanner/updbanner/@item.kecidbannerid" class="btn btn-primary"><i class="fas fa-fan"></i></a></td>
+        </tr>
+    }
+</table>
+<a href="~/kecidbanner/addbanner" class="btn btn-primary ">Banner əlavə et</a>

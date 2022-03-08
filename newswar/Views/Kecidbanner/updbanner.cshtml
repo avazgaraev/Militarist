@@ -1,0 +1,20 @@
+﻿@model newswar.Models.kecidbanner
+@{
+    ViewBag.Title = "updbanner";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>updbanner</h2>
+
+@using (Html.BeginForm("updbanner", "kecidbanner", FormMethod.Post))
+{
+    <form method="post" class="form-group">
+
+
+        <input type="file" name="bannerphoto" value="@Model.bannerphoto" class="form-control" placeholder="banner photo" /><br />
+        <input name="bannertext" value="@Model.bannertext" class="form-control" type="text" /><br />
+
+
+        <button class="btn btn-primary mt-2">Update </button>
+    </form>
+}

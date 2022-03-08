@@ -1,0 +1,41 @@
+﻿@model List<newswar.Models.silahlar>
+
+<section class="section-p1 product1">
+    <h2>Benzer silahlar</h2>
+    <button class="normal">Daha chox goester</button>
+
+    <div class="pro-container">
+        @foreach (var item in Model)
+        {
+
+            <div class="pro" onclick="window.location.href='/itemPage.html';">
+
+                <div class="pro-img">
+                    @foreach (var item1 in item.Silahsekils)
+                    {
+                        if (item1.sekilmain == true)
+                        {
+
+                            <img src="@item1.sekilad" alt="">
+                        }
+                    }
+
+                </div>
+                <div class="des">
+                    <h5>@item.silahad</h5>
+                    <span>@item.Subcategory.Category.categoryname, @item.Subcategory.subaname</span>
+
+
+                    <h4>USA</h4>
+                </div>
+
+            </div>
+        }
+
+
+
+
+
+
+    </div>
+</section>

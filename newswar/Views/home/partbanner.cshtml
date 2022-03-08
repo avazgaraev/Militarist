@@ -1,0 +1,19 @@
+﻿
+@using newswar.Models
+@model List<meqbanner>
+
+
+
+<section id="banner3">
+@foreach (var item in Model)
+{
+    if (item.available==true)
+    {
+
+    <a href="#" class="banner-box banner-box-@item.bannerid" style="background-image:url(@item.sekil)">
+        <h2 style="color:@item.banneradreng">@item.bannerad</h2>
+    </a>
+    }   
+}
+   
+</section>

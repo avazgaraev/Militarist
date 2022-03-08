@@ -1,0 +1,96 @@
+﻿@model newswar.Models.meqale
+@{
+    ViewBag.Title = "infomequser";
+    Layout = "~/Shared/layout.cshtml";
+}
+
+@Html.HiddenFor(x=>x.meqaleid)
+
+<section id="singleArt" class="section-p1">
+
+
+    <div class="w-70 p20 ">
+
+        <div class="main-news">
+            <h1>@Model.basliq</h1>
+
+            <div class="ws-80">
+            </div>
+            @foreach (var item in Model.Meqalesekils)
+            {
+
+                <div class="imgHolder ws-50 p20  ">
+                    <img class=" " src="@item.sekilad" alt="">
+                    <p class="txt-gray">Foto</p>
+
+
+                </div>
+            }
+
+
+            <div class="ws-80 mt20">
+                <h4>@Model.qisadetal</h4>
+                <p>
+                    @Model.uzundetal
+                </p>
+                @foreach (var item in Model.Teqlers)
+                {
+
+                    <span class="tag">#@item.teqad</span>
+                }
+            </div>
+        </div>
+
+    </div>
+
+    @Html.Action("latestuser", "meqale")
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section id="newsletter" class="section-p1 section-p1">
+    <div class="newstext">
+        <h4>Qejdijatdan kewcin</h4>
+        <p>Jeni jazylardan anynda xeberdar olun</p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="E-powct uenvanynyz">
+        <button class="normal">Qejd ol</button>
+    </div>
+</section>
+<footer class="section-p1">
+    <div class="col">
+        <img class="logo" src="~/Content/pix/logo1main.png" alt="">
+        @Html.Action("partialelaqe", "home")
+
+        @Html.Action("partialfooter", "home")
+    </div>
+    <div class="col">
+        <h4>Haqqymyzda</h4>
+        <a href="#">Lajihe meqsedi</a>
+        <a href="#">Reklam uewcun</a>--
+
+    </div>
+
+    <div class="col">
+        <h4>Boelmeler</h4>
+        <a href="#">Son hadiseler</a>
+        <a href="#">Silahlar & texnikalar</a>
+        <a href="#">Herb tarixi</a>
+
+    </div>
+
+
+    <div class="copyright">
+        <p>FiBWEB MMC mehsuludur</p>
+    </div>
+</footer>
+

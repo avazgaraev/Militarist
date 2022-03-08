@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "addbanner";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>addbanner</h2>
+
+<form method="post">
+
+
+
+    <input type="text" class="form-control mt-3" placeholder="Banner Photo" name="bannerphoto" /><br />
+
+    <input type="text" class="form-control mt-3" placeholder="Banner yazısı" name="bannerad" /><br />
+
+    <label>Banner yazı rəngi</label>
+    <input type="color" class="form-control mt-3" placeholder="Banner yazı rəngi" name="bannercolor" /><br />
+
+
+    <input type="text" class="form-control mt-3" placeholder="Button Yazısı" name="bannerbuttontext" /><br />
+
+    <label>Banner button yazı rəngi</label>
+    <input type="color" class="form-control" placeholder="Button rəngi" name="bannerbuttoncolor" /><br />
+
+    <label>Banner button arxa plan rəngi</label>
+    <input type="color" class="form-control mt-3" placeholder="Banner button arxa plan rəngi " name="bannerbuttonbgcolor" /><br />
+
+    <button class="btn btn-success">Təsdiq</button>
+</form>

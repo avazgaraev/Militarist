@@ -1,0 +1,324 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B570191-BD15-4E07-BA81-CAB1ACB9E350}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>newswar</RootNamespace>
+    <AssemblyName>newswar</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44397</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\demo\chart-area-demo.js" />
+    <Content Include="Content\demo\chart-bar-demo.js" />
+    <Content Include="Content\demo\chart-pie-demo.js" />
+    <Content Include="Content\demo\datatables-demo.js" />
+    <Content Include="Content\img\error-404-monochrome.svg" />
+    <Content Include="Content\js\datatables-simple-demo.js" />
+    <Content Include="Content\js\scripts.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\pix\armour.jpg" />
+    <Content Include="Content\pix\banners\banner1total.jpg" />
+    <Content Include="Content\pix\banners\banner2vehicles.jpg" />
+    <Content Include="Content\pix\banners\banner2vehiclesff.jpg" />
+    <Content Include="Content\pix\banners\banner3warrus.jpg" />
+    <Content Include="Content\pix\banners\banner4fend.jpg" />
+    <Content Include="Content\pix\banners\banner4war.jpg" />
+    <Content Include="Content\pix\banners\banner5vieti.jpg" />
+    <Content Include="Content\pix\banners\banner6naval.jpg" />
+    <Content Include="Content\pix\banners\banner6navalff.jpg" />
+    <Content Include="Content\pix\banners\banner7fplane.jpg" />
+    <Content Include="Content\pix\banners\banner7fplaneff.jpg" />
+    <Content Include="Content\pix\banners\banner7wep.jpg" />
+    <Content Include="Content\pix\banners\banner7wepff.jpg" />
+    <Content Include="Content\pix\camo_texture1.jpg" />
+    <Content Include="Content\pix\camo_texture2.png" />
+    <Content Include="Content\pix\camo_texture2we.jpg" />
+    <Content Include="Content\pix\camo_texture3.jpg" />
+    <Content Include="Content\pix\camo_texture4yellow.jpg" />
+    <Content Include="Content\pix\favicon-16x16.png" />
+    <Content Include="Content\pix\favicon-32x32.png" />
+    <Content Include="Content\pix\hovered\hov1tank.jpg" />
+    <Content Include="Content\pix\hovered\hov1tankSELF.png" />
+    <Content Include="Content\pix\hovered\hov1tankWHOLE.jpg" />
+    <Content Include="Content\pix\intro1.jpg" />
+    <Content Include="Content\pix\intro2.jpg" />
+    <Content Include="Content\pix\logo1main.png" />
+    <Content Include="Content\pix\logo2blue.png" />
+    <Content Include="Content\pix\news\newspic1.jpg" />
+    <Content Include="Content\pix\news\newspic2.jpg" />
+    <Content Include="Content\pix\news\newspic3.jpg" />
+    <Content Include="Content\pix\texture\metal1.png" />
+    <Content Include="Content\script.js" />
+    <Content Include="Content\style.css" />
+    <Content Include="Global.asax" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="webadmin\401.html" />
+    <Content Include="webadmin\404.html" />
+    <Content Include="webadmin\500.html" />
+    <Content Include="webadmin\assets\demo\chart-area-demo.js" />
+    <Content Include="webadmin\assets\demo\chart-bar-demo.js" />
+    <Content Include="webadmin\assets\demo\chart-pie-demo.js" />
+    <Content Include="webadmin\assets\demo\datatables-demo.js" />
+    <Content Include="webadmin\assets\img\error-404-monochrome.svg" />
+    <Content Include="webadmin\charts.html" />
+    <Content Include="webadmin\css\styles.css" />
+    <Content Include="webadmin\index.html" />
+    <Content Include="webadmin\js\datatables-simple-demo.js" />
+    <Content Include="webadmin\js\scripts.js" />
+    <Content Include="webadmin\layout-sidenav-light.html" />
+    <Content Include="webadmin\layout-static.html" />
+    <Content Include="webadmin\login.html" />
+    <Content Include="webadmin\password.html" />
+    <Content Include="webadmin\register.html" />
+    <Content Include="webadmin\tables.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AltBannerlarController.cs" />
+    <Compile Include="Controllers\categoryController.cs" />
+    <Compile Include="Controllers\ElaqeController.cs" />
+    <Compile Include="Controllers\homeController.cs" />
+    <Compile Include="Controllers\KecidbannerController.cs" />
+    <Compile Include="Controllers\meqaleController.cs" />
+    <Compile Include="Controllers\meqalesekilController.cs" />
+    <Compile Include="Controllers\MeqbannerController.cs" />
+    <Compile Include="Controllers\silahlarController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\category.cs" />
+    <Compile Include="Models\kecidbanner.cs" />
+    <Compile Include="Models\biz.cs" />
+    <Compile Include="Models\context.cs" />
+    <Compile Include="Models\elaqe.cs" />
+    <Compile Include="Models\altbanner.cs" />
+    <Compile Include="Models\logo.cs" />
+    <Compile Include="Models\mainwords.cs" />
+    <Compile Include="Models\meqale.cs" />
+    <Compile Include="Models\meqalesekil.cs" />
+    <Compile Include="Models\meqbanner.cs" />
+    <Compile Include="Models\navbar.cs" />
+    <Compile Include="Models\silahlar.cs" />
+    <Compile Include="Models\silahsekil.cs" />
+    <Compile Include="Models\silahteqler.cs" />
+    <Compile Include="Models\subcategory.cs" />
+    <Compile Include="Models\teqler.cs" />
+    <Compile Include="Models\visitor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\data.json" />
+    <None Include="packages.config" />
+    <Content Include="Shared\layout.cshtml" />
+    <Content Include="Views\home\home.cshtml" />
+    <Content Include="Views\home\news.cshtml" />
+    <Content Include="Views\home\allitems.cshtml" />
+    <Content Include="Views\home\about.cshtml" />
+    <Content Include="Shared\layoutadmin.cshtml" />
+    <Content Include="Views\Admin\biz.cshtml" />
+    <Content Include="Views\Admin\addsosial.cshtml" />
+    <Content Include="Views\home\partialfooter.cshtml" />
+    <Content Include="Views\Admin\updsoial.cshtml" />
+    <Content Include="Views\home\partialelaqe.cshtml" />
+    <Content Include="Views\Elaqe\indexela.cshtml" />
+    <Content Include="Views\Elaqe\addcontact.cshtml" />
+    <Content Include="Views\Elaqe\updelaqe.cshtml" />
+    <Content Include="Views\AltBannerlar\Indexbanner.cshtml" />
+    <Content Include="Views\AltBannerlar\updbanner.cshtml" />
+    <Content Include="Views\AltBannerlar\addbanner.cshtml" />
+    <Content Include="Views\home\partialaltbanner.cshtml" />
+    <Content Include="Views\Kecidbanner\Indexbanner.cshtml" />
+    <Content Include="Views\Kecidbanner\addbanner.cshtml" />
+    <Content Include="Views\home\partialkecid.cshtml" />
+    <Content Include="Views\home\partialnavbar.cshtml" />
+    <Content Include="Views\meqale\indexmeq.cshtml" />
+    <Content Include="Views\meqale\addmeq.cshtml" />
+    <Content Include="Views\meqale\updmeq.cshtml" />
+    <Content Include="Views\Meqbanner\Index.cshtml" />
+    <Content Include="Views\Meqbanner\addbanner.cshtml" />
+    <Content Include="Views\Meqbanner\updbanner.cshtml" />
+    <Content Include="Views\Kecidbanner\updbanner.cshtml" />
+    <Content Include="Views\home\partbanner.cshtml" />
+    <Content Include="Views\home\latest.cshtml" />
+    <Content Include="Views\meqale\infomeq.cshtml" />
+    <Content Include="Views\meqale\infomequser.cshtml" />
+    <Content Include="Views\meqale\latestuser.cshtml" />
+    <Content Include="Views\meqalesekil\Index.cshtml" />
+    <Content Include="Views\meqale\updbasliq.cshtml" />
+    <Content Include="Views\meqale\updqisa.cshtml" />
+    <Content Include="Views\meqale\upduzun.cshtml" />
+    <Content Include="Views\silahlar\Index.cshtml" />
+    <Content Include="Views\silahlar\addsilah.cshtml" />
+    <Content Include="Views\category\Index.cshtml" />
+    <Content Include="Views\category\addcat.cshtml" />
+    <Content Include="Views\category\infocat.cshtml" />
+    <Content Include="Views\silahlar\infosilah.cshtml" />
+    <Content Include="Views\silahlar\infosilahuser.cshtml" />
+    <Content Include="Views\silahlar\benzerpartial.cshtml" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Views\category\addsubcati.cshtml" />
+    <Content Include="Views\home\partmeq.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\img\meqale\" />
+    <Folder Include="Content\img\silah\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50222</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44397/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

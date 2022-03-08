@@ -1,0 +1,20 @@
+﻿@model newswar.Models.elaqe
+@{
+    ViewBag.Title = "updelaqe";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>updelaqe</h2>
+
+
+@using (Html.BeginForm("updelaqe", "elaqe", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.bizid)
+        @Html.LabelFor(x => x.email)
+        @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+        @Html.LabelFor(x => x.phone)
+        @Html.TextBoxFor(x => x.phone, new { @class = "form-control" })
+        <button class="btn btn-primary mt-2">Update </button>
+    </div>
+}

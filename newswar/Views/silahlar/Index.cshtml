@@ -1,0 +1,58 @@
+﻿@using newswar.Models
+@model List<silahlar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<form action="~/silahlar/delsilah/" method="post">
+    <input type="submit" value="Delete" class="btn btn-sm btn-danger rounded-0" onclick="return confirm('Are you sure?')" />
+    <table id="DataTable" class="table table-bordered">
+        <tr>
+            <th><input type="checkbox" name="select-all" id="select-all" class="custom-checkbox" onclick="toggle(this);" /></th>
+            <th>Silah photo</th>
+            <th>silah ad</th>
+            <th>DEtal</th>
+
+            <th>Info</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="silahid" value="@item.silahid" class="custom-checkbox chkCheckBoxId" />
+                </td>
+                @foreach (var item1 in item.Silahsekils)
+                {
+
+                    if (item1.sekilmain == true)
+                    {
+
+                        <td><img src="@item1.sekilad" style="width:50%" /></td>
+                    }
+                }
+                <td>@item.silahad</td>
+
+                <td>@item.silahdetal</td>
+
+                <td><a href="~/silahlar/infosilah/@item.silahid" class="btn btn-info"><i class="fas fa-info"></i></a></td>
+            </tr>
+
+        }
+    </table>
+</form>
+    <a href="~/silahlar/addsilah" class="btn btn-primary ">Silah əlavə et</a>
+
+    <script>
+
+        function toggle(source) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i] != source)
+                    checkboxes[i].checked = source.checked;
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

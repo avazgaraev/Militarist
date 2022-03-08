@@ -1,0 +1,64 @@
+﻿@model newswar.Models.silahlar
+
+@{
+    ViewBag.Title = "infosilah";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>infosilah</h2>
+
+
+
+
+
+<section id="prodetails" class="section-p1">
+    <div class="single-pro-image">
+        <div class="imgHolder">
+            @Html.HiddenFor(x=>x.silahid)
+            @foreach (var item in Model.Silahsekils.Take(1))
+            {
+
+            <div class="imgHolder">
+                <img src="@item.sekilad"
+                     id="MainImg" alt="">
+
+            </div>
+            }
+
+        </div>
+        <div class="small-img-group">
+            @foreach (var item in Model.Silahsekils)
+            {
+
+                <div class="small-img-col small-img">
+                    <img src="@item.sekilad"
+                         width="100%" alt="">
+                    <a href="~/silahlar/delsekil/@item.sekilid">delete</a>
+                </div>
+
+            }
+
+        </div>
+            <form action="~/silahlar/addsekil/@Model.silahid" method="post" enctype="multipart/form-data">
+
+                <input type="file" name="sekilad" />
+                <button>submit</button>
+            </form>
+    </div>
+
+    <div class="single-pro-details">
+        
+        <h6> @Model.Subcategory.Category.categoryname / @Model.Subcategory.subaname</h6>
+        
+
+        
+        <h2>@Model.silahad</h2>
+
+        <h4>Silah haqda</h4>
+
+        <span>
+            
+            @Model.silahdetal
+        </span>
+    </div>
+</section>

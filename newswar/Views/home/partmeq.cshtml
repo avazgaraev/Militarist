@@ -1,0 +1,22 @@
+﻿@model newswar.Models.meqale
+
+<div class="main-news">
+    <div class="imgHolder ws-30">
+        @foreach (var item in Model.Meqalesekils)
+        {
+            if (item.sekilmain==true)
+            {
+
+                <img src="@item.sekilad" alt="">
+            }
+
+        }
+    </div>
+    <div class="ws-60">
+        <h4>@Model.basliq</h4>
+        <p>
+            @Model.qisadetal <a href="~/meqale/infomequser/@Model.meqaleid" class="readmore">Ardyny oxu...</a>
+        </p>
+        @*<span class="tag"></span>*@
+    </div>
+</div>

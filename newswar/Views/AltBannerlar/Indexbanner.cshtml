@@ -1,0 +1,31 @@
+﻿@using newswar.Models
+@model List<altbanner>
+@{
+    ViewBag.Title = "Indexbanner";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>Indexbanner</h2>
+
+<h5>Button'larin arxa plan rengi sehifede mouse ustune gelerken ola rengdir.</h5>
+<table class="table table-dark">
+    <tr>
+        <th>Banner photo</th>
+        <th>Banner ad</th>
+        <th>Banner Button </th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td><img src="@item.bannerphoto" style="width:30%"/> </td>
+            <td style="color:@item.bannercolor">@item.bannerad</td>
+            <td><button class="white" style="color:@item.bannerbuttoncolor;background-color:@item.bannerbuttonbgcolor">@item.bannerbuttontext</button></td>
+            <td><a href="~/altbannerlar/delbanner/@item.bannerid" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+            <td><a href="~/altbannerlar/updbanner/@item.bannerid" class="btn btn-primary"><i class="fas fa-fan"></i></a></td>
+        </tr>
+    }
+</table>
+<a href="~/altbannerlar/addbanner" class="btn btn-primary ">Banner əlavə et</a>

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "addbanner";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>addbanner</h2>
+
+<form method="post">
+
+
+
+    <input type="text" class="form-control mt-3" placeholder="Banner Photo" name="bannerphoto" id="inp" onkeyup="myFunction()"/><br />
+    <img id="log" src="" style="width:20%"/>
+    @*<h1 id="log"></h1>*@
+    <input type="text" class="form-control mt-3" placeholder="Banner yazısı" name="bannertext" /><br />
+
+    <button class="btn btn-success">Təsdiq</button>
+</form>
+<script>
+    
+    function myFunction() {
+        var x = document.getElementById("inp");
+        document.getElementById("log").src= x.value;
+        console.log(log);
+        console.log(x.value);
+    }
+</script>

@@ -1,0 +1,16 @@
+﻿@model newswar.Models.subcategory
+
+
+    @Html.HiddenFor(x => x.categoryid)
+@using (Html.BeginForm("infocat", "category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    <input name="subaname" type="text" />
+    <button>submit</button>
+
+
+}
+
+
+

@@ -1,0 +1,38 @@
+﻿@model newswar.Models.meqale
+
+@{
+    ViewBag.Title = "updmeq";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>updmeq</h2>
+
+@using (Html.BeginForm("updmeq", "meqale", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form method="post" class="form-group">
+    @Html.HiddenFor(x => x.meqaleid)
+
+    <input type="text" name="basliq" value="@Model.basliq" class="form-control" placeholder="basliq" /><br />
+    <input name="qisadetal" value="@Model.qisadetal" class="form-control" type="text" /><br />
+    <input name="uzundetal" value="@Model.uzundetal" class="form-control" type="text" /><br />
+    @foreach (var item in Model.Meqalesekils)
+    {
+        
+        <img src="@item.sekilad" style="width:30%" /><br /><br /><a href="~/meqalesekil/deleteimg/@item.sekilid" class="btn-danger">Delete</a>
+
+
+    }
+    <input type="file" class="form-control mt-3" placeholder="Meqale sekil" name="sekilad" id="inp" >
+
+    @foreach (var item in Model.Teqlers)
+    {
+        <input name="teqad" value="@item.teqad" class="form-control" type="text" />
+    }
+
+
+
+
+
+    <button class="btn btn-primary mt-2">Update </button>
+</form>
+}

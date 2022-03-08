@@ -1,0 +1,33 @@
+﻿@using newswar.Models
+@model List<meqale>
+
+
+<div class="newsRight w-30">
+    <div class="allNews">
+        <h4>En son meqaleler</h4>
+        <ul>
+                @foreach (var item in Model)
+                {
+            <li>
+
+                <a href="singleArticle.html" class="dflex">
+                    @foreach (var item1 in item.Meqalesekils)
+                    {
+                        if (item1.sekilmain==true)
+                        {
+
+                            <img class="ws-40" src="@item1.sekilad" alt="">
+                        }
+                    }
+                    <p class="ws-60">
+                        @item.qisadetal
+                    </p>
+                </a>
+                <hr>
+            </li>
+                }
+
+
+        </ul>
+    </div>
+</div>

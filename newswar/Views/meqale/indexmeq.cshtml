@@ -1,0 +1,124 @@
+﻿@using newswar.Models
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<meqale>
+@{
+    ViewBag.Title = "indexmeq";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>indexmeq</h2>
+
+
+
+
+@using (Html.BeginForm("indexmeq", "meqale", FormMethod.Get))
+{
+   
+<a href="~/meqale/addmeq" class="btn btn-primary ">Məqalə əlavə et</a>
+    <div class="form-inner">
+        <label for="string">Axtaryws soezu:</label>
+        @*<input type="text" id="lname" name="lastname" placeholder="soez">*@
+        @Html.TextBox("p")
+    </div>
+
+    <div class="form-inner">
+        <label for="sortBY">Syrala:</label>
+        <select id="sortBY" name="sortBY">
+            <option name="sortBY" value="new">En jeni</option>
+            <option name="sortBY" value="popular">En chox oxunan</option>
+            <option name="sortBY" value="letter">A-Z</option>
+        </select>
+    </div>
+    <label for="say">meqale sayi:</label>
+    <select id="say" name="say">
+        <option name="say" value="5">5</option>
+        <option name="say" value="7">7</option>
+        <option name="say" value="10">10</option>
+    </select>
+
+    @*<div class="form-inner">
+            <label for="country">Teeqler:</label>
+            <select id="country" name="country">
+                <option value="ussr">#tank</option>
+                <option value="canada">#nato</option>
+                <option value="usa">#Azerbajcan</option>
+            </select>
+        </div>
+
+        <br>
+        <div class="czech-div">
+            <label class="czech">
+                Silah
+                <input type="checkbox" checked="checked">
+            </label>
+
+            <label class="czech">
+                Texnika
+                <input type="checkbox">
+            </label>
+
+            <label class="czech">
+                Insani
+                <input type="checkbox">
+            </label>
+        </div>*@
+
+    <br>
+    <button class="normal">Axtar</button>
+}
+
+<form action="~/meqale/delmeq/" method="post">
+    <input type="submit" value="Delete" class="btn btn-sm btn-danger rounded-0" onclick="return confirm('Are you sure?')" />
+    <table id="DataTable" class="table table-bordered">
+        <tr>
+            <th><input type="checkbox" name="select-all" id="select-all" class="custom-checkbox" onclick="toggle(this);" /></th>
+            <th>Meqale photo</th>
+            <th>Meqale ad</th>
+            <th>Qisa DEtal</th>
+            <th>Uzun DEtal</th>
+
+            <th>Info</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="meqaleid" value="@item.meqaleid" class="custom-checkbox chkCheckBoxId" />
+                </td>
+                @foreach (var item1 in item.Meqalesekils)
+                {
+
+                    if (item1.sekilmain == true)
+                    {
+
+                        <td><img src="@item1.sekilad" style="width:50%" /></td>
+                    }
+                }
+                <td>@item.basliq</td>
+                <td>@item.qisadetal</td>
+                <td>@item.uzundetal</td>
+
+                <td><a href="~/meqale/infomeq/@item.meqaleid" class="btn btn-info"><i class="fas fa-info"></i></a></td>
+            </tr>
+
+        }
+    </table>
+</form>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("indexmeq", new { page, p = Request.Params["p"], sortBY = Request.Params["sortBY"], say = Request.Params["say"] }), new PagedListRenderOptions
+      {
+          LiElementClasses = new string[] { "activeli" }
+      })
+<a href="~/meqale/addmeq" class="btn btn-primary ">Məqalə əlavə et</a>
+
+<script>
+
+    function toggle(source) {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source)
+                checkboxes[i].checked = source.checked;
+        }
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

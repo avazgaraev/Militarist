@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "addcat";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>addcat</h2>
+
+@using (Html.BeginForm("addcat", "category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <input type="text" class="form-control" placeholder="kateqoriya adi" name="categoryname" />
+    <br />
+
+    <button class="btn btn-success">Təsdiq</button>
+}

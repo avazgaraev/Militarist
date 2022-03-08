@@ -1,0 +1,215 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" s>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="icon" href="~/Content/pix/favicon-16x16.png" type="image/icon type">
+
+</head>
+
+<body>
+<section id="nav-search">
+    <section id="header">
+        <a href="~/home/home"><img src="~/Content/pix/logo1main.png" class="logo" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="~/home/home">Ana Sehife</a></li>
+                <li><a href="~/home/news">Meqaleler</a></li>
+                <li><a href="~/home/allitems">Buetun melumatlar</a></li>
+                <li><a href="~/home/about">Haqqymyzda</a></li>
+                <a href="#" id="close"> <i class="fas  fa-times"></i> <span>bahgla</span></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+
+    </section>
+    <section id="search" class="section-p1">
+        <div class="search">
+            <input type="text" placeholder="axtaryws">
+            <button class="normal">AXTAR</button>
+        </div>
+    </section>
+    <section class="section-p1" id="intro">
+
+        <h1>herbe dair</h1>
+        <h1> her shej</h1>
+    </section>
+</section>
+<section id="newsIndex" class="section-p1">
+    <h2>Bu guenun en chox oxunan jazysy</h2>
+    <a class="normal" href="~/home/news">Daha chox goester</a>
+
+
+    @Html.Action("partmeq")
+</section>
+
+
+
+
+
+
+
+    <h2>Sueretli Kewcid</h2>
+
+    @*<div class="flama-inner">
+            <div class="flamad w-50 one">
+                <div class="flamad-inner">
+
+                </div>
+            </div>
+            <div class="flamad w-50 two">
+
+            </div>
+        </div>*@
+    <section id="dive">
+        <div class="dive-div">
+            @Html.Action("partialkecid")
+
+        </div>
+
+
+    </section>
+
+
+
+
+<section class="section-p1 product1">
+    <h2>Random Bilgiler</h2>
+    <p>Sajtymyzyn geniws bilgi hovuzundan jararlanyn</p>
+    <a class="normal" href="~/home/allitems/">Daha chox goester</a>
+    <div id="indexWeapons" class="pro-container">
+        <div class="pro" onclick="window.location.href='/itemPage.html';">
+
+            <div class="pro-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/US_Army_AH-1G_archived.jpg/300px-US_Army_AH-1G_archived.jpg"
+                     alt="">
+
+            </div>
+            <div class="des">
+                <h5>Cobra</h5>
+                <span>Silah, huecum tuefengi</span>
+
+
+                <h4>USA</h4>
+            </div>
+
+        </div>
+        
+
+        <div class="pro" onclick="window.location.href='/itemPage.html';">
+
+            <div class="pro-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Ak74assault.jpg/640px-Ak74assault.jpg"
+                     alt="">
+
+            </div>
+            <div class="des">
+                <h5>AK74</h5>
+                <span>Silah, huecum tuefengi</span>
+
+
+                <h4>USSR</h4>
+            </div>
+
+        </div>
+
+        <div class="pro" onclick="window.location.href='/itemPage.html';">
+
+            <div class="pro-img">
+                <img src="https://qph.fs.quoracdn.net/main-qimg-247a607434a46a8cd6c18ad143c7aa2d" alt="">
+
+            </div>
+            <div class="des">
+                <h5>AUG</h5>
+                <span>Silah, huecum tuefengi</span>
+
+
+                <h4>USA</h4>
+            </div>
+
+        </div>
+
+        <div class="pro" onclick="window.location.href='/itemPage.html';">
+
+            <div class="pro-img">
+                <img src="https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/9bb8f1ff-ff26-4fb9-be5a-8765cbb5b205"
+                     alt="">
+
+            </div>
+            <div class="des">
+                <h5>GROZA</h5>
+                <span>Silah, huecum tuefengi</span>
+
+
+                <h4>Russia</h4>
+            </div>
+
+        </div>
+
+
+
+
+
+</section>
+
+
+
+<section id="sm-banner" class="section-p1">
+    
+    @Html.Action("partialaltbanner")
+</section>
+
+<section id="newsletter" class="section-p1 section-p1">
+    <div class="newstext">
+        <h4>Qejdijatdan kewcin</h4>
+        <p>Jeni jazylardan anynda xeberdar olun</p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="E-powct uenvanynyz">
+        <button class="normal">Qejd ol</button>
+    </div>
+</section>
+
+<footer class="section-p1">
+    <div class="col">
+        <img class="logo" src="~/Content/pix/logo1main.png" alt="">
+        @Html.Action("partialelaqe")
+
+        @Html.Action("partialfooter", "home")
+    </div>
+    <div class="col">
+        <h4>Haqqymyzda</h4>
+        <a href="#">Lajihe meqsedi</a>
+        <a href="#">Reklam uewcun</a>--
+
+    </div>
+
+    <div class="col">
+        <h4>Boelmeler</h4>
+        <a href="#">Son hadiseler</a>
+        <a href="#">Silahlar & texnikalar</a>
+        <a href="#">Herb tarixi</a>
+
+    </div>
+
+
+    <div class="copyright">
+        <p>FiBWEB MMC mehsuludur</p>
+    </div>
+</footer>
+
+<script src="~/Content/script.js"></script>
+</body>
+
+</html>

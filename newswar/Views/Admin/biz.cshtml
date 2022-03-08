@@ -1,0 +1,31 @@
+﻿@using newswar.Models
+@model List<biz>
+
+@{
+    ViewBag.Title = "biz";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>Bizim Məlumatlar</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Sosial Şəbəkə Ad</th>
+        <th>Sosial Şəbəkə Link</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+
+        <td>@item.sosialad</td>
+        <td>@item.sosiallink</td>
+        <td><a href="~/admin/delsosial/@item.bizid" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+        <td><a href="~/admin/updsoial/@item.bizid" class="btn btn-primary"><i class="fas fa-fan"></i></a></td>
+    </tr>
+        }
+</table>
+<a href="~/admin/addsosial" class="btn btn-primary ">Sosial şəbəkə əlavə et</a>
+
+

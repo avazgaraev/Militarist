@@ -1,0 +1,21 @@
+﻿@model newswar.Models.biz
+@{
+    ViewBag.Title = "updsoial";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>updsoial</h2>
+
+@using (Html.BeginForm("updsoial", "admin", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.bizid)
+        @Html.LabelFor(x => x.sosialad)
+        @Html.TextBoxFor(x => x.sosialad, new { @class = "form-control" })
+        @Html.LabelFor(x => x.sosiallink)
+        @Html.TextBoxFor(x => x.sosiallink, new { @class = "form-control" })
+        <button class="btn btn-primary mt-2">Update </button>
+    </div>
+}
+
+

@@ -1,0 +1,11 @@
+﻿@using newswar.Models
+@model List<kecidbanner>
+
+@foreach (var item in Model)
+{
+<div class="w-33 two" style="background-image:url(@item.bannerphoto)">
+    <h4>@item.bannertext</h4>
+
+</div>
+
+}

@@ -1,0 +1,28 @@
+﻿@using newswar.Models
+@model List<elaqe>
+
+@{
+    ViewBag.Title = "indexela";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+
+<table class="table table-striped">
+    <tr>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.email</td>
+            <td>@item.phone</td>
+            <td><a href="~/elaqe/delelaqe/@item.bizid" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+            <td><a href="~/elaqe/updelaqe/@item.bizid" class="btn btn-primary"><i class="fas fa-fan"></i></a></td>
+        </tr>
+    }
+</table>
+<a href="~/elaqe/addcontact" class="btn btn-primary ">Sosial şəbəkə əlavə et</a>

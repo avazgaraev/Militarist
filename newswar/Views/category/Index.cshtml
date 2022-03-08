@@ -1,0 +1,28 @@
+﻿@using newswar.Models
+@model List<category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Category ad</th>
+        <th>Info</th>
+        <th>delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+    <tr>
+
+        <td>@item.categoryname</td>
+        <td><a href="~/category/infocat/@item.categoryid" class="btn btn-info"><i class="fas fa-info"></i></a></td>
+        <td><a href="~/category/delcat/@item.categoryid" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+
+    </tr>
+    }
+</table>
+<a href="~/category/addcat" class="btn btn-primary ">Kateqoriya əlavə et</a>

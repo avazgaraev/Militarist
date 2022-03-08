@@ -1,0 +1,25 @@
+﻿@using newswar.Models
+@model List<altbanner>
+
+@foreach (var item in Model)
+{
+
+    <div class="banner-box banner-@item.bannerid " style="background-image:url(@item.bannerphoto)">
+        <h2 style="color:@item.bannercolor">@item.bannerad</h2>
+        <button class="white" style="">@item.bannerbuttontext</button>
+    </div>
+
+
+ 
+
+}
+@foreach (var item in Model)
+{
+    <style>
+    #sm-banner .banner-@item.bannerid:hover button{
+
+        background-color: @item.bannerbuttonbgcolor;
+        color:@item.bannerbuttoncolor
+    }
+    </style>
+}

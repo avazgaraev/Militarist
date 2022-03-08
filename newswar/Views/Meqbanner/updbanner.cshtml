@@ -1,0 +1,41 @@
+﻿@model newswar.Models.meqbanner
+@{
+    ViewBag.Title = "updbanner";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>updbanner</h2>
+
+@using (Html.BeginForm("updbanner", "meqbanner", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form method="post" class="form-group">
+    @Html.HiddenFor(x => x.bannerid)
+
+    <input style="display:none" type="text" name="sekil" value="@Model.sekil" placeholder="Banner şəkil" class="form-control" /><br />
+
+    <input type="file" name="sekil" class="form-control" /><br />
+
+    <input name="bannerad" value="@Model.bannerad" class="form-control" type="text" /><br />
+    <input name="banneradreng" value="@Model.banneradreng" class="form-control" type="color" /><br />
+    <label for="available">Status:</label>
+    @*@if (Model.available == true)
+    {
+
+        <input name="available" id="available" checked class="form" type="checkbox" /><br />
+
+    }
+    @if (Model.available == false)
+    {
+
+        <input name="available" id="available" class="form" type="checkbox" /><br />
+    }
+
+    @if (available.Checked)
+    {
+
+    }*@
+
+    @Html.CheckBoxFor(x => x.available)
+    <button class="btn btn-primary mt-2">Update </button>
+</form>
+}

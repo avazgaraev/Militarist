@@ -1,0 +1,77 @@
+﻿@using newswar.Models
+@model List<elaqe>
+@{
+    ViewBag.Title = "about";
+    Layout = "~/Shared/layout.cshtml";
+}
+
+
+<section id="about" class="section-p1">
+    <img src="~/Content/pix/logo2blue.png" alt="">
+    <h4>Sajtymyzyn meqsedi</h4>
+    <p>
+        Bu sajty jaratmahgymyzdaky meqsed toplamyws oldughumuz
+        geniws melumat jyhgynyny siz herb heveskarlary ile
+        en jaxwsy shekilde boeluwsmekdir.
+    </p>
+
+    <h4>Elaqe</h4>
+
+    <p>
+        Bize awsahgydaky noemre, e-powct ve sosial shebeke hesablaryndan chata bilersiz:
+    </p>
+    @foreach (var item in Model)
+    {
+        <p>
+            <span>
+                @item.phone
+            </span>
+        </p>
+        <p>
+            <span>
+                <a href="mailto: @item.email">@item.email</a>
+            </span>
+        </p>
+    }
+</section>
+<section id="newsletter" class="section-p1 section-p1">
+    <div class="newstext">
+        <h4>Qejdijatdan kewcin</h4>
+        <p>Jeni jazylardan anynda xeberdar olun</p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="E-powct uenvanynyz">
+        <button class="normal">Qejd ol</button>
+    </div>
+</section>
+<footer class="section-p1">
+    <div class="col">
+        <img class="logo" src="~/Content/pix/logo1main.png" alt="">
+        @Html.Action("partialelaqe")
+
+        @Html.Action("partialfooter", "home")
+    </div>
+    <div class="col">
+        <h4>Haqqymyzda</h4>
+        <a href="#">Lajihe meqsedi</a>
+        <a href="#">Reklam uewcun</a>--
+
+    </div>
+
+    <div class="col">
+        <h4>Boelmeler</h4>
+        <a href="#">Son hadiseler</a>
+        <a href="#">Silahlar & texnikalar</a>
+        <a href="#">Herb tarixi</a>
+
+    </div>
+
+
+    <div class="copyright">
+        <p>FiBWEB MMC mehsuludur</p>
+    </div>
+</footer>
+
+
+
+

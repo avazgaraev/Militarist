@@ -1,0 +1,18 @@
+﻿@model newswar.Models.meqalesekil
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("Index", "meqalesekil", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x=>x.sekilid)
+    <img src="@Model.sekilad" style="width:200px" />
+    @Html.CheckBoxFor(x=>x.sekilmain)
+
+
+    <button class="btn btn-success">submit</button>
+}

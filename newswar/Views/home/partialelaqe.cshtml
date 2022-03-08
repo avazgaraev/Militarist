@@ -1,0 +1,10 @@
+﻿
+@using newswar.Models
+@model List<elaqe>
+
+<h4>Contact</h4>
+@foreach (var item in Model)
+{
+
+<p><strong>Elaqe uewcun:</strong> <a href="mailto: @item.email">@item.email</a></p>
+}

@@ -1,0 +1,173 @@
+﻿@model newswar.Models.meqale
+@{
+    ViewBag.Title = "addmeq";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>addmeq</h2>
+@using (Html.BeginForm("addmeq", "meqale", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+<form class="form-group" method="post">
+
+
+
+    <input type="file" class="form-control mt-3" placeholder="Meqale sekil" name="sekilad" id="inp" onkeyup="myFunction()">
+    <img id="log" src="" style="width:20%" />
+
+
+    <input type="text" class="form-control mt-3" placeholder="Meqale basliq" name="basliq" /><br />
+
+    @Html.DropDownListFor(x => x.subcategoryid, (List<SelectListItem>)ViewBag.val1, new { @class = "form-control " })
+
+
+    <input type="text" class="form-control mt-3" placeholder="qisadetal" name="qisadetal" /><br />
+
+
+    <input type="text" class="form-control mt-3" placeholder="uzun detal" name="uzundetal" /><br />
+
+
+    @Html.Label("Teqleri qeyd edin:")
+
+    @*<input type="text" class="form-control" placeholder="teq adi" name="teqad" /><br />
+
+        <input type="text" class="form-control" placeholder="teq adi" name="teqad" /><br />
+
+        <input type="text" class="form-control" placeholder="teq adi" name="teqad" /><br />*@
+
+    <div class="keyHandler">
+        <button type="button" id="addKey">+</button>
+        <input type="text" placeholder="Keyword + Enter" id="keysInput">
+    </div>
+    <div class="addedKeysHolder"></div>
+
+
+    <!-- Just give this input the name="etc" attribute -->
+    <input type="hidden" id="lkey" name="teqler">
+
+
+
+
+
+
+    <button class="btn btn-success">Təsdiq</button>
+</form>
+}
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script>
+    $(window).keydown(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            addKey();
+            return false;
+        }
+    });
+
+    //call addKey() by pressing button
+    $('#addKey').click(function (e) {
+        addKey();
+    });
+
+
+    //Add key function
+    function addKey() {
+        let key = $('#keysInput').val()
+        if (key != '') {
+            let tag = document.createElement('span')
+            $(tag).append(key)
+            $(tag).attr('onclick', `$(this).remove();removeKey("${key}");`)
+            $('.addedKeysHolder').append(tag)
+            $('#keysInput').val('')
+            resetKey()
+        }
+    }
+
+    //According to my goals, this function was equal to the resetKey(). But here I put it in a separate block, so you can easily customize it if you want
+    function removeKey() {
+        resetKey()
+    }
+
+    //Reset all keys
+    function resetKey() {
+        $('#lkey').val('')
+        for (let i = 1; i <= $('.addedKeysHolder span').length; i++) {
+            let theKey = $(`.addedKeysHolder span:nth-child(${i})`).text()
+            let prevVal = $('#lkey').val() + ','
+            $('#lkey').val(prevVal + theKey)
+        }
+        $('#lkey').val($('#lkey').val());
+        $('#keysInput').focus();
+    }
+</script>
+<style>
+    ::after,
+    ::before {
+        box-sizing: border-box;
+    }
+
+    .keyHandler {
+        float: left;
+        width: 250px;
+        height: 40px;
+    }
+
+        .keyHandler > button {
+            float: left;
+            height: 100%;
+            width: 40px;
+            border: none;
+            outline: none !important;
+            background: #673AB7;
+            border-radius: 7px;
+            color: white;
+            cursor: pointer;
+            font-size: 26pt;
+        }
+
+        .keyHandler > input {
+            float: left;
+            width: calc(100% - 45px);
+            margin: 0 0 0 5px;
+            height: 38px;
+            padding: 0 14px;
+            background: #ffffff;
+            border: none;
+            outline: none !important;
+            font-family: monospace;
+            border-bottom: 2px solid #673AB7;
+        }
+
+    .addedKeysHolder {
+        float: left;
+        width: 100%;
+        height: auto;
+        margin: 8px 0 0 0;
+    }
+
+        .addedKeysHolder > span {
+            background: #2196F3;
+            padding: 8px 10px 8px 30px;
+            float: left;
+            margin: 2px;
+            border-radius: 100px;
+            color: white;
+            font-family: monospace;
+            font-size: 12pt;
+            position: relative;
+            cursor: pointer;
+        }
+
+            .addedKeysHolder > span:after {
+                content: "\d7";
+                position: absolute;
+                left: 12px;
+                top: 0;
+                bottom: 0;
+                width: 14px;
+                height: 14px;
+                line-height: .5;
+                margin: auto;
+                font-size: 17pt;
+            }
+</style>

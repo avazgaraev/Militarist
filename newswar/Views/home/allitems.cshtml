@@ -1,0 +1,161 @@
+﻿@using newswar.Models
+@model List<silahlar>
+@{
+    ViewBag.Title = "allitems";
+    Layout = "~/Shared/layout.cshtml";
+}
+
+<section id="filterer" class="section-p1">
+    <h2>Silahlar ve xarakteristikalary</h2>
+
+    @using (Html.BeginForm("allitems", "home", FormMethod.Get))
+    {
+
+        <div class="form-inner">
+            <label for="string">Axtaryws soezu:</label>
+            @*<input type="text" id="lname" name="lastname" placeholder="soez">*@
+            @Html.TextBox("p")
+        </div>
+        <div class="form-inner">
+            <label for="country">Menwse oelke:</label>
+            <select id="country" name="country">
+                <option value="ussr">NATO</option>
+                <option value="canada">ABWs</option>
+                <option value="usa">Almanija</option>
+            </select>
+        </div>
+
+        <div class="form-inner">
+            <label for="sortBY">Syrala:</label>
+            <select id="sortBY" name="sortBY">
+                <option value="new">En jeni</option>
+                <option value="popular">En chox oxunan</option>
+                <option value="popular">ABC</option>
+            </select>
+        </div>
+        <label for="say">meqale sayi:</label>
+        <select id="say" name="say">
+        </select>
+
+       
+
+        <br>
+        <button class="normal">Axtar</button>
+    }
+
+
+        @*<div class="form-inner">
+            <label for="con">Alt fesil:</label>
+            <select id="con" name="con">
+                <option value="ussr">Tank</option>
+                <option value="canada">HHMQ</option>
+                <option value="usa">XTQ</option>
+            </select>
+        </div>
+
+        <br>
+        <div class="czech-div">
+            <label class="czech">
+                Silah
+                <input type="checkbox" checked="checked">
+            </label>
+
+            <label class="czech">
+                Texnika
+                <input type="checkbox">
+            </label>
+
+            <label class="czech">
+                Insani
+                <input type="checkbox">
+            </label>
+        </div>
+
+        <br>
+        <button class="normal">Axtar</button>*@
+
+</section>
+
+<section class="section-p1 product1">
+    <div class="pro-container">
+        @foreach (var item in Model)
+        {
+            <div class="pro">
+                <div class="pro-img">
+                    @foreach (var item1 in item.Silahsekils)
+                    {
+                        if (item1.sekilmain == true)
+                        {
+                            <img src="@item1.sekilad" alt="@item.silahdetal">
+
+                        }
+                    }
+                </div>
+                <div class="des">
+                    <a href="~/silahlar/infosilahuser/@item.silahid">
+
+                    <h5>@item.silahad</h5>
+                    </a>
+                    <span>@item.Subcategory.Category.categoryname, @item.Subcategory.subaname</span>
+                    <h4>USA</h4>
+                    <p class="tag mt20">Xlor</p>
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+    <div id="Pagin">
+        <a href="#" class="active">1</a>
+        <a href="#" class="">2</a>
+        <a href="#" class="">3</a>
+        <a href="#" class="">»</a>
+    </div>
+</section>
+
+<section id="newsletter" class="section-p1 section-p1">
+    <div class="newstext">
+        <h4>Qejdijatdan kewcin</h4>
+        <p>Jeni jazylardan anynda xeberdar olun</p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="E-powct uenvanynyz">
+        <button class="normal">Qejd ol</button>
+    </div>
+</section>
+<footer class="section-p1">
+    <div class="col">
+        <img class="logo" src="~/Content/pix/logo1main.png" alt="">
+        @Html.Action("partialelaqe")
+
+        @Html.Action("partialfooter", "home")
+    </div>
+    <div class="col">
+        <h4>Haqqymyzda</h4>
+        <a href="#">Lajihe meqsedi</a>
+        <a href="#">Reklam uewcun</a>--
+
+    </div>
+
+    <div class="col">
+        <h4>Boelmeler</h4>
+        <a href="#">Son hadiseler</a>
+        <a href="#">Silahlar & texnikalar</a>
+        <a href="#">Herb tarixi</a>
+
+    </div>
+
+
+    <div class="copyright">
+        <p>FiBWEB MMC mehsuludur</p>
+    </div>
+</footer>
+
+<style>
+    .activeli a.active {
+        background-color: #04300C;
+        color: white;
+    }
+</style>
+

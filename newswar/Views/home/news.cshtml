@@ -1,0 +1,183 @@
+﻿@using newswar.Models
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<meqale>
+
+@{
+    ViewBag.Title = "news";
+    Layout = "~/Shared/layout.cshtml";
+}
+
+
+<section id="filterer" class="closed section-p1">
+    <h2>Meqaleler</h2>
+    @using (Html.BeginForm("news", "home", FormMethod.Get))
+    {
+
+        <div class="form-inner">
+            <label for="string">Axtaryws soezu:</label>
+            @*<input type="text" id="lname" name="lastname" placeholder="soez">*@
+            @Html.TextBox("p")
+        </div>
+
+        <div class="form-inner">
+            <label for="sortBY">Syrala:</label>
+            <select id="sortBY" name="sortBY">
+                <option name="sortBY" value="new">En jeni</option>
+                <option name="sortBY" value="popular">En chox oxunan</option>
+            </select>
+        </div>
+        <label for="say">meqale sayi:</label>
+        <select id="say" name="say">
+            <option name="say" value="5">5</option>
+            <option name="say" value="7">7</option>
+            <option name="say" value="10">10</option>
+        </select>
+
+        @*<div class="form-inner">
+                <label for="country">Teeqler:</label>
+                <select id="country" name="country">
+                    <option value="ussr">#tank</option>
+                    <option value="canada">#nato</option>
+                    <option value="usa">#Azerbajcan</option>
+                </select>
+            </div>
+
+            <br>
+            <div class="czech-div">
+                <label class="czech">
+                    Silah
+                    <input type="checkbox" checked="checked">
+                </label>
+
+                <label class="czech">
+                    Texnika
+                    <input type="checkbox">
+                </label>
+
+                <label class="czech">
+                    Insani
+                    <input type="checkbox">
+                </label>
+            </div>*@
+
+        <br>
+        <button class="normal">Axtar</button>
+    }
+
+</section>
+
+
+
+<section id="newsPage" class="section-p1">
+    <div class="first w-100">
+        <h2>Meqaleler </h2>
+        <button id="showNewsSearch" class="normal">axtaryws paneli goester</button>
+    </div>
+
+    <div class="newsLeft w-70">
+        @foreach (var item in Model)
+
+        {
+            <div class="main-news">
+                <div class="imgHolder ws-40">
+                    @foreach (var item1 in item.Meqalesekils)
+                    {
+                        if (item1.sekilmain == true)
+                        {
+
+                            <a href="~/meqale/infomequser/@item.meqaleid"><img src="@item1.sekilad" alt=""></a>
+                        }
+                    }
+                </div>
+                <div class="ws-60">
+                    <h4>@item.basliq</h4>
+                    <p>
+                        @if (item.qisadetal.Count() < 50)
+                        {
+                            @item.qisadetal
+
+                        }
+                        else
+                        {
+                            @item.qisadetal.Substring(0, 50)
+
+                        }
+                        <a href="~/meqale/infomequser/@item.meqaleid" class="readmore">Ardyny oxu...</a>
+                    </p>
+
+                </div>
+            </div>
+
+        }
+
+
+
+
+
+        <div id="Pagin">
+            @*<a href="#" class="active">1</a>
+                <a href="#" class="">2</a>
+                <a href="#" class="">3</a>
+                <a href="#" class="">»</a>*@
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("news", new { page, p = Request.Params["p"], sortBY = Request.Params["sortBY"], say = Request.Params["say"] }), new PagedListRenderOptions
+       {
+           LiElementClasses = new string[] { "activeli" }
+       })
+        </div>
+    </div>
+
+    @Html.Action("latest", "home")
+
+
+</section>
+
+
+
+
+@Html.Action("partbanner", "home")
+
+<section id="newsletter" class="section-p1 section-p1">
+    <div class="newstext">
+        <h4>Qejdijatdan kewcin</h4>
+        <p>Jeni jazylardan anynda xeberdar olun</p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="E-powct uenvanynyz">
+        <button class="normal">Qejd ol</button>
+    </div>
+</section>
+<footer class="section-p1">
+    <div class="col">
+        <img class="logo" src="~/Content/pix/logo1main.png" alt="">
+        @Html.Action("partialelaqe")
+
+        @Html.Action("partialfooter", "home")
+    </div>
+    <div class="col">
+        <h4>Haqqymyzda</h4>
+        <a href="#">Lajihe meqsedi</a>
+        <a href="#">Reklam uewcun</a>--
+
+    </div>
+
+    <div class="col">
+        <h4>Boelmeler</h4>
+        <a href="#">Son hadiseler</a>
+        <a href="#">Silahlar & texnikalar</a>
+        <a href="#">Herb tarixi</a>
+
+    </div>
+
+
+    <div class="copyright">
+        <p>FiBWEB MMC mehsuludur</p>
+    </div>
+</footer>
+
+<style>
+    .activeli a.active {
+        background-color: #04300C;
+        color: white;
+    }
+</style>

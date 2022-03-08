@@ -1,0 +1,24 @@
+﻿@model newswar.Models.category
+
+@{
+    ViewBag.Title = "infocat";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>infocat</h2>
+@foreach (var item in Model.subcategories)
+{
+
+    <li>@item.subaname</li><a href="~/category/delsubcat/@item.subid"><i class="fas fa-trash"></i></a>
+}
+
+@Html.HiddenFor(x => x.categoryid)
+@using (Html.BeginForm("infocat", "category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.HiddenFor(x=>x.categoryid)
+    <input name="subaname" type="text" />
+    <button>submit</button>
+
+
+}

@@ -1,0 +1,31 @@
+﻿@model newswar.Models.silahlar
+@{
+    ViewBag.Title = "addsilah";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>addsilah</h2>
+
+@using (Html.BeginForm("addsilah", "silahlar", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+
+    <form class="form-group" method="post">
+
+
+
+        <input type="file" class="form-control mt-3" placeholder="Meqale sekil" name="sekilad" id="inp" >
+
+        @Html.DropDownListFor(x=>x.subcategoryid, (List<SelectListItem>)ViewBag.val1, new { @class="form-control " })
+
+        <input type="text" class="form-control mt-3" placeholder="silahin adi" name="silahad" /><br />
+
+        <input type="text" class="form-control mt-3" placeholder="silah detal" name="silahdetal" /><br />
+
+
+        <input type="text" class="form-control" placeholder="teq adi" name="teqad" /><br />
+
+
+        <button class="btn btn-success">Təsdiq</button>
+    </form>
+}

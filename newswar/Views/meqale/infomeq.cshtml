@@ -1,0 +1,59 @@
+﻿@model newswar.Models.meqale
+
+@{
+    ViewBag.Title = "infomeq";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>infomeq</h2>
+
+<div class="w-70 p20 ">
+
+    <div class="main-news">
+
+
+        <a href="~/meqale/updbasliq/@Model.meqaleid"><h1>@Model.basliq</h1></a>
+
+        <div class="ws-80">
+            <a href="~/meqale/updqisa/@Model.meqaleid"><h4>@Model.qisadetal</h4></a>
+        </div>
+
+        @foreach (var item in Model.Meqalesekils)
+        {
+
+            <div class="imgHolder ws-50 p20  ">
+                <a href="~/meqalesekil/Index/@item.sekilid"><img class=" " src="@item.sekilad" alt=""></a>
+                <p class="txt-gray">Foto</p>
+                <a href="~/meqalesekil/deleteimg/@item.sekilid">delete</a>
+            
+            </div>
+        }
+        <form action="~/meqalesekil/addimg/@Model.meqaleid" method="post" enctype="multipart/form-data">
+
+            <input type="file" name="sekilad" />
+            <button>submit</button>
+        </form>
+
+        <a href="~/meqalesekil/index/@Model.meqaleid">edit</a>
+
+        <a href="~/meqale/upduzun/@Model.meqaleid">
+            <p>
+                @Model.uzundetal
+            </p></a>
+            <div class="ws-80 mt20">
+                @*<h4>Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic impedit temporibus dolores
+                voluptatem
+                placeat? Libero enim quidem fugiat quas nostrum sunt consequatur laboriosam?
+            </p>*@
+               
+
+                    <span class="tag">#@Model.teqler</span> 
+                
+            </div>
+
+</div>
+    @Html.Action("latest", "home")
+</div>
+

@@ -1,0 +1,17 @@
+﻿@model newswar.Models.meqale
+
+@{
+    ViewBag.Title = "upduzun";
+    Layout = "~/Shared/layoutadmin.cshtml";
+}
+
+<h2>upduzun</h2>
+
+
+@using (Html.BeginForm("upduzun", "meqale", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(x => x.meqaleid)
+    <input style="width:100%;height:100px"  value="@Model.uzundetal" name="uzundetal" />
+    <button>Submit</button>
+
+}
